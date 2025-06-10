@@ -1,0 +1,19 @@
+{
+  "name": "wp-ai-assistant-plugin",
+  "version": "1.0.0",
+  "description": "WordPress AI Assistant Plugin",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/react": "^19.1.7",
+    "@types/react-dom": "^19.1.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.18.0"
+  }
+}
