@@ -13,7 +13,7 @@ dist
 build
 
 # Composer dependencies
-/vendor/
+/vendor
 
 # WordPress test setup
 /wp-tests-config.php
