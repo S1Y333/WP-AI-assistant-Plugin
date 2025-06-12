@@ -1,14 +1,18 @@
-import * as React from "react";
 
-// The React App component
+
+declare const wp: any;
+import ChatWindow from "./frontend/ChatWindow";
+
+const { createElement, createRoot } = wp.element;
+
 const App = () => (
-  <div>
-    <h1>WP AI Assistant Plugin</h1>
-    <p>Hello from your React frontend!</p>
-  </div>
+  createElement('div', null,
+    createElement('h1', null, 'WP AI Assistant Plugin'),
+    createElement('p', null, 'Hello from your React frontend!'),
+    createElement(ChatWindow) 
+  )
 );
 
-// Wait for DOM and WordPress React to be ready
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('ai-chatbot-container');
 
@@ -17,18 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // Show loading state
-  container.innerHTML = `<p>Loading AI Chatbot...</p>`;
+  container.innerHTML = '<p>Loading AI Chatbot...</p>';
 
-  // Check for WordPress React (wp.element)
-  if (typeof wp === 'undefined' || !wp.element || !wp.element.createRoot) {
+  if (!wp || !wp.element || !wp.element.createRoot) {
     container.innerHTML = `
-      <div style="
-        padding: 20px;
-        background: #f8d7da;
-        color: #721c24;
-        border-left: 4px solid #f5c6cb;
-      ">
+      <div style="padding: 20px; background: #f8d7da; color: #721c24; border-left: 4px solid #f5c6cb;">
         <p>Error: WordPress React (wp.element) not loaded. Try refreshing the page.</p>
       </div>
     `;
@@ -36,8 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // Mount the React app
-  const { createRoot } = wp.element;
-  container.innerHTML = ""; // Clear loading/error message
-  createRoot(container).render(<App />);
+  container.innerHTML = ''; // Clear loading state
+  createRoot(container).render(createElement(App));
 });

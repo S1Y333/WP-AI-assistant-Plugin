@@ -6,10 +6,13 @@ require_once __DIR__ . '/includes/class-chat-api.php';
 (new Chat_API())->register_routes();
 
 function enqueue_chatbot() {
+
+     wp_enqueue_script('wp-element'); 
+
     wp_enqueue_script(
         'ai-chatbot-frontend',
         plugins_url('/build/index.js', __FILE__),
-        ['wp-element'], // Only wp-element is needed for React
+        array('wp-element'), // Only wp-element is needed for React
         filemtime(__DIR__ . '/build/index.js'),
         true
     );
