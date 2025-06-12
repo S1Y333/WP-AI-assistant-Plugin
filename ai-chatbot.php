@@ -5,6 +5,10 @@ Plugin Name: AI Chatbot MVP
 require_once __DIR__ . '/includes/class-chat-api.php';
 (new Chat_API())->register_routes();
 
+// Include the Knowledge API for managing knowledge base
+require_once __DIR__ . '/includes/admin/class-knowledge-api.php';
+(new Knowledge_API())->register_routes();
+
 function enqueue_chatbot() {
 
      wp_enqueue_script('wp-element'); 

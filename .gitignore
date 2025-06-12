@@ -12,6 +12,24 @@ node_modules
 dist
 build
 
+# Composer dependencies
+/vendor/
+
+# WordPress test setup
+/wp-tests-config.php
+/wordpress/
+/tmp/
+/build/
+/tests/phpunit/data/
+
+# PHPUnit logs and reports
+phpunit.xml.cache
+junit.xml
+coverage.xml
+.clover
+.cache/
+.phpunit.result.cache
+
 # OS generated files
 .DS_Store
 Thumbs.db
