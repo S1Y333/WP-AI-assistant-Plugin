@@ -2,7 +2,7 @@
   "name": "wp-ai-assistant-plugin",
   "version": "1.0.0",
   "description": "WordPress AI Assistant Plugin",
-  "main": "index.js",
+  "main": "frontend.js",
   "scripts": {
     "start": "wp-scripts start",
     "build": "wp-scripts build"

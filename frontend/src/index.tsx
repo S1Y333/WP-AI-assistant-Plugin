@@ -1,7 +1,7 @@
 
 
-declare const wp: any;
-import ChatWindow from "./frontend/ChatWindow";
+
+import ChatWindow from "./ChatWindow";
 
 const { createElement, createRoot } = wp.element;
 
