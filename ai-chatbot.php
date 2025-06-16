@@ -61,13 +61,14 @@ add_action('admin_enqueue_scripts', function($hook) {
 add_action('admin_menu', 'register_ai_chatbot_admin_page');
 
 function register_ai_chatbot_admin_page() {
+    
     add_menu_page(
         'AI Chatbot Settings',    // Page title (browser tab)
         'AI Chatbot',            // Menu title (sidebar)
         'manage_options',        // Capability (admin-only)
         'ai-chatbot-admin',      // Menu slug (URL identifier)
-        'render_admin_page',     // Callback function to render the page
-        'dashicons-robot',       // Icon (WordPress Dashicons)
+        'render_admin_page',     // Callback function to render the page 
+        'dashicons-format-chat', // Icon (use Dashicons)   
         6                        // Position (optional, 6 = below Posts)
     );
 }
