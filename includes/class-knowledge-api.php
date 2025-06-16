@@ -1,6 +1,7 @@
 <?php
 class Knowledge_API {
   public function register_routes() {
+    add_action('rest_api_init', function() {
     register_rest_route('ai-chatbot/v1', '/knowledge', [
       'methods'  => 'GET',
       'callback' => [$this, 'get_knowledge'],
@@ -12,6 +13,7 @@ class Knowledge_API {
       'callback' => [$this, 'save_knowledge'],
       'permission_callback' => [$this, 'check_admin_permissions']
     ]);
+});
   }
 
   public function get_knowledge() {
