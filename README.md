@@ -16,9 +16,13 @@ Phase 1: Minimal Viable Plugin (Fixed Knowledge Base)
 Phase 2: Admin Dashboard (Knowledge Management)
 Phase 2-1: seprate admin and frontend code 
 Phase 2-2: make admin dashboard show on the admin side solve bugs
-Phase 2-3: todo - edit admin dashboard UI 
-           - list all the knowledge
-           - answer based on the input knowledge
+Phase 2-3:
+           - list all the knowledge -done
+           - answer based on the input knowledge - done
 Phase 3: Azure AI Integration
+        - todo: let ai agent answer questions 
+        - todo: upload a doc/txt/pdf file to Azure AI agent
 Phase 4: UI frontend updates
+         - edit admin dashboard UI 
+         - frontend UI to be a chatbox
 Phase 5: Advanced features
