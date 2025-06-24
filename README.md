@@ -27,5 +27,6 @@ Phase 3: Azure AI Integration
         - todo: upload a doc/txt/pdf file to Azure AI agent
 Phase 4: UI frontend updates
          - edit admin dashboard UI 
-         - frontend UI to be a chatbox
+         - frontend UI to be a chatbox - done
+         - Using Tailwind CSS Scoped to Your WordPress Plugin - because frontend UI tailwind was overwrite by betheme and bootstrap
 Phase 5: Advanced features

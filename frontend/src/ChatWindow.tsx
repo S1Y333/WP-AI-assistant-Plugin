@@ -42,46 +42,45 @@ export default function ChatWindow() {
   }
 
   return (
-
-createElement(
+    createElement(
   'div',
-  { className: 'fixed bottom-6 right-6 z-50' },
+  { className: 'tw-fixed tw-bottom-6 tw-right-6 tw-z-50' },
   isOpen
     ? createElement(
         'div',
-        { className: 'w-80 h-96 bg-white rounded-t-lg shadow-xl flex flex-col border border-gray-200' },
+        { className: 'tw-w-80 tw-h-96 tw-bg-white tw-rounded-t-lg tw-shadow-xl tw-flex tw-flex-col tw-border tw-border-gray-200' },
         // Header
         createElement(
           'div',
           {
-            className: 'bg-red-700 text-white p-3 rounded-t-lg flex justify-between items-center cursor-pointer',
+            className: 'tw-bg-red-700 tw-text-white tw-p-3 tw-rounded-t-lg tw-flex tw-justify-between tw-items-center tw-cursor-pointer',
             onClick: toggleChat
           },
-          createElement('h3', { className: 'font-semibold' }, 'Magnet Chatbot'),
+          createElement('h3', { className: 'tw-font-semibold' }, 'Magnet Chatbot'),
           createElement(
             'button',
-            { className: 'text-white focus:outline-none' },
-            isOpen ? '−' : '+'
+            { className: 'tw-text-white focus:tw-outline-none tw-bg-red-700' },
+            isOpen ? 'X' : '+'
           )
         ),
         // Messages
         createElement(
           'div',
-          { className: 'flex-1 p-4 overflow-y-auto' },
+          { className: 'tw-flex-1 tw-p-4 tw-overflow-y-auto' },
           messages.map((message) =>
             createElement(
               'div',
               {
                 key: message.id,
-                className: `mb-3 ${message.sender === 'user' ? 'text-right' : 'text-left'}`
+                className: `tw-mb-3 ${message.sender === 'user' ? 'tw-text-right' : 'tw-text-left'}`
               },
               createElement(
                 'div',
                 {
-                  className: `inline-block p-2 rounded-lg ${
+                  className: `tw-inline-block tw-p-2 tw-rounded-lg ${
                     message.sender === 'user'
-                      ? 'bg-red-700 text-white'
-                      : 'bg-gray-200 text-gray-800'
+                      ? 'tw-bg-red-700 tw-text-white'
+                      : 'tw-bg-gray-200 tw-text-gray-800'
                   }`
                 },
                 message.text
@@ -92,22 +91,23 @@ createElement(
         // Input
         createElement(
           'form',
-          { onSubmit: sendMessage, className: 'p-3 border-t border-gray-200' },
+          { onSubmit: sendMessage, className: 'tw-p-3 tw-border-t tw-border-gray-200' },
           createElement(
             'div',
-            { className: 'flex' },
+            { className: 'tw-flex' },
             createElement('input', {
               type: 'text',
               value: input,
               onChange: (e) => setInput(e.target.value),
               placeholder: 'Type your message...',
-              className: 'flex-1 p-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-1 focus:ring-red-600'
+              className: 'tw-flex-1 tw-p-2 tw-border tw-border-gray-300 tw-rounded-l-lg focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-red-600 mar-btm',
+              
             }),
             createElement(
               'button',
               {
                 type: 'submit',
-                className: 'bg-red-700 text-white px-4 py-2 rounded-r-lg hover:bg-red-800 focus:outline-none'
+                className: 'tw-bg-red-700 tw-text-white tw-px-4 tw-py-2 tw-rounded-r-lg hover:tw-bg-red-800 focus:tw-outline-none'
               },
               'Send'
             )
@@ -119,13 +119,13 @@ createElement(
         'button',
         {
           onClick: toggleChat,
-          className: 'bg-red-700 text-white p-4 rounded-full shadow-lg hover:bg-red-800 focus:outline-none'
+          className: 'tw-bg-red-700 tw-text-white tw-p-4 tw-rounded-full tw-shadow-lg hover:tw-bg-red-800 focus:tw-outline-none'
         },
         createElement(
           'svg',
           {
             xmlns: 'http://www.w3.org/2000/svg',
-            className: 'h-6 w-6',
+            className: 'tw-h-6 tw-w-6',
             fill: 'none',
             viewBox: '0 0 24 24',
             stroke: 'currentColor'
@@ -139,5 +139,6 @@ createElement(
         )
       )
 )
+
   );
 }

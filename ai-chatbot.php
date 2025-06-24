@@ -24,17 +24,17 @@ function enqueue_chatbot() {
         'root' => esc_url_raw(rest_url()),
         'nonce' => wp_create_nonce('wp_rest')
     ]);
-}
+
      // Enqueue CSS if you have it
-//   if (file_exists(__DIR__ . '/build/index.css')) {
-//     wp_enqueue_style(
-//       'ai-chatbot-styles',
-//       plugins_url('/build/index.css', __FILE__),
-//       [],
-//       filemtime(__DIR__ . '/build/index.css')
-//     );
-//   }
-// }
+  if (file_exists(__DIR__ . '/frontend/build/index.css')) {
+    wp_enqueue_style(
+      'ai-chatbot-styles',
+      plugins_url('/frontend/build/index.css', __FILE__),
+      [],
+      filemtime(__DIR__ . '/frontend/build/index.css')
+    );
+  }
+}
 
 add_action('wp_enqueue_scripts', 'enqueue_chatbot');
 
@@ -83,4 +83,25 @@ function chatbot_shortcode() {
   return '<div id="ai-chatbot-container"></div>'; // Must match your React root
 }
 add_shortcode('ai_chatbot', 'chatbot_shortcode');
+
+// inject the footer
+// Inject the chatbox root div into ALL pages
+// add_action('wp_footer', function() {
+//     echo '<div id="ai-chatbot-container" style="position:fixed;bottom:20px;right:20px;z-index:999999;"></div>';
+// }); this can't make style applied to the chatbox
+// add_action('wp_enqueue_scripts', function() {
+//     wp_enqueue_style('ai-chatbot-style', false);
+//     wp_add_inline_style('ai-chatbot-style', '
+//         #ai-chatbot-container {
+//             position: fixed;
+//             bottom: 20px;
+//             right: 20px;
+//             z-index: 999999;
+//         }
+//     ');
+// });
+
+add_action('wp_footer', function() {
+    echo '<div id="ai-chatbot-container"></div>';
+});
 

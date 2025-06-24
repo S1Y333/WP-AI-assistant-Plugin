@@ -1,14 +1,12 @@
 
 
-
+import './index.css';//need to import css file and never edit build file
 import ChatWindow from "./ChatWindow";
 
 const { createElement, createRoot } = wp.element;
 
 const App = () => (
   createElement('div', null,
-    createElement('h1', null, 'WP AI Assistant Plugin'),
-    createElement('p', null, 'Hello from your React frontend!'),
     createElement(ChatWindow) 
   )
 );
