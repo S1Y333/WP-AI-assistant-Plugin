@@ -21,6 +21,9 @@ Phase 2-3:
            - answer based on the input knowledge - done
 Phase 3: Azure AI Integration
         - todo: let ai agent answer questions 
+        install dependency: npm install @azure/identity @azure/ai-projects 
+        npm install @azure/openai
+        run from root plugin folder: composer require vlucas/phpdotenv
         - todo: upload a doc/txt/pdf file to Azure AI agent
 Phase 4: UI frontend updates
          - edit admin dashboard UI 

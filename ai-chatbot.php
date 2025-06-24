@@ -83,3 +83,4 @@ function chatbot_shortcode() {
   return '<div id="ai-chatbot-container"></div>'; // Must match your React root
 }
 add_shortcode('ai_chatbot', 'chatbot_shortcode');
+
