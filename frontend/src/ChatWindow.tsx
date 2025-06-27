@@ -17,7 +17,10 @@ export default function ChatWindow() {
     { id: 1, text: 'Hello! Welcome to Magnet website. How can I help you today?', sender: 'bot' }
   ]);
   const [input, setInput] = useState<string>('');
- 
+  // typing status
+  const [isUserTyping, setIsUserTyping] = useState(false);
+  const [isBotThinking, setIsBotThinking] = useState(false);
+  let typingTimeout: NodeJS.Timeout;
  
 
   const toggleChat = () => setIsOpen(!isOpen);
@@ -27,14 +30,27 @@ export default function ChatWindow() {
     if (event) event.preventDefault();
       if (!input.trim()) return;
       setMessages(prev => [...prev, { id: messages.length +1, sender: "user", text: input }]);
+      
+      // clear user input field and set bot thinking status
+      setInput('');
+      setIsUserTyping(false);
+      setIsBotThinking(true);
 
       const response = await fetch("http://localhost:8080/api/agent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input }),
       });
+      if (!response.ok) {
+        setIsBotThinking(false);
+        console.error("Failed to get response from server");
+        return;
+      }
       
       const data = await response.json();
+      // after receiving response, set bot thinking status to false
+      setIsBotThinking(false);
+
       console.log("Response from server:", data);
 
       setMessages(prev => [...prev, {  id: prev.length + 1,sender: "bot", text: data.reply }]);
@@ -86,7 +102,32 @@ export default function ChatWindow() {
                 message.text
               )
             )
-          )
+          ),
+           // Typing indicators
+  isBotThinking && createElement(
+    'div',
+    { className: 'tw-text-left tw-mb-3' },
+    createElement(
+      'div',
+      { className: 'tw-inline-block tw-p-2 tw-rounded-lg tw-bg-gray-200 tw-text-gray-800' },
+      createElement(
+        'div',
+        { className: 'tw-flex tw-space-x-1' },
+        createElement('div', { className: 'tw-w-2 tw-h-2 tw-bg-gray-500 tw-rounded-full tw-animate-bounce' }),
+        createElement('div', { className: 'tw-w-2 tw-h-2 tw-bg-gray-500 tw-rounded-full tw-animate-bounce tw-animation-delay-100' }),
+        createElement('div', { className: 'tw-w-2 tw-h-2 tw-bg-gray-500 tw-rounded-full tw-animate-bounce tw-animation-delay-200' })
+      )
+    )
+  ),
+  isUserTyping && createElement(
+    'div',
+    { className: 'tw-text-right tw-mb-3' },
+    createElement(
+      'div',
+      { className: 'tw-inline-block tw-p-2 tw-rounded-lg tw-bg-red-700 tw-text-white' },
+      'Typing...'
+    )
+  )
         ),
         // Input
         createElement(
@@ -98,7 +139,13 @@ export default function ChatWindow() {
             createElement('input', {
               type: 'text',
               value: input,
-              onChange: (e) => setInput(e.target.value),
+              onChange: (e) => {
+                // for typing detection
+                   setInput(e.target.value);
+                    setIsUserTyping(true);
+                    clearTimeout(typingTimeout);
+                    typingTimeout = setTimeout(() => setIsUserTyping(false), 1000);
+              },
               placeholder: 'Type your message...',
               className: 'tw-flex-1 tw-p-2 tw-border tw-border-gray-300 tw-rounded-l-lg focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-red-600 mar-btm',
               
