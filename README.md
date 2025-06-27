@@ -28,5 +28,12 @@ Phase 3: Azure AI Integration
 Phase 4: UI frontend updates
          - edit admin dashboard UI 
          - frontend UI to be a chatbox - done
-         - Using Tailwind CSS Scoped to Your WordPress Plugin - because frontend UI tailwind was overwrite by betheme and bootstrap
+         - Using Tailwind CSS Scoped to Your WordPress Plugin - because frontend UI tailwind was overwrite by betheme and bootstrap - done
+         - add type status for bot and user - todo
+           1. add state for typing status
+           - react frontend testing has been successful, need to apply to the WP frontend one - TODO
+           - clean up the frontend response 
+           2. modify message section to include typing indicators
+           3. add user typing detection
+           4. add bot typing detection
 Phase 5: Advanced features

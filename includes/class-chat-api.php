@@ -1,6 +1,7 @@
 <?php
 class Chat_API {
-//   private $knowledge = [
+//   this is the backend of connecting agent
+// private $knowledge = [
 //     "hello" => "Hi there! How can I help?",
 //     "bye" => "Goodbye! Come back soon."
 //   ];
