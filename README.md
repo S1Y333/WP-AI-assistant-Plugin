@@ -31,9 +31,15 @@ Phase 4: UI frontend updates
          - Using Tailwind CSS Scoped to Your WordPress Plugin - because frontend UI tailwind was overwrite by betheme and bootstrap - done
          - add type status for bot and user - todo
            1. add state for typing status
-           - react frontend testing has been successful, need to apply to the WP frontend one - TODO
+           - react frontend testing has been successful, need to apply to the WP frontend one -done
            - clean up the frontend response 
            2. modify message section to include typing indicators
-           3. add user typing detection
+           3. add user typing detection 
            4. add bot typing detection
-Phase 5: Advanced features
+           5.todo: remove source at the end
+Phase 5: Todo - Admin Dashboard using custom post type to upload knowledge
+
+Phase 6: Backend deployment
+         Todo - replace localhost to auctal 
+
+Phase 7: Bing search functions
