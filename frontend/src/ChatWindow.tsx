@@ -36,6 +36,7 @@ export default function ChatWindow() {
       setIsUserTyping(false);
       setIsBotThinking(true);
 
+      // needs to replace with actual backend call
       const response = await fetch("http://localhost:8088/api/agent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
